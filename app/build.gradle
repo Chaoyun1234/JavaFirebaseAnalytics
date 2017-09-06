@@ -27,6 +27,7 @@ dependencies {
     dependencies {
         def mobileCenterSdkVersion = '0.11.1'
         compile "com.microsoft.azure.mobile:mobile-center-push:${mobileCenterSdkVersion}"
+        compile "com.microsoft.azure.mobile:mobile-center-distribute:${mobileCenterSdkVersion}"
     }
     compile 'com.android.support:appcompat-v7:26.+'
     compile 'com.android.support:design:26.+'

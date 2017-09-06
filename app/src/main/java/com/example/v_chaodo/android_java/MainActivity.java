@@ -1,25 +1,25 @@
 package com.example.v_chaodo.android_java;
 
+import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import com.google.firebase.analytics.FirebaseAnalytics;
 import android.support.design.widget.Snackbar;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-
-import com.microsoft.azure.mobile.MobileCenter;
-import com.microsoft.azure.mobile.push.Push;
 import android.widget.TextView;
+
+import com.google.firebase.analytics.FirebaseAnalytics;
+import com.microsoft.azure.mobile.MobileCenter;
+import com.microsoft.azure.mobile.distribute.Distribute;
+import com.microsoft.azure.mobile.push.Push;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -44,8 +44,10 @@ public class MainActivity extends AppCompatActivity {
         // Obtain the FirebaseAnalytics instance.
         mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
         Push.setListener(new MyPushListener());
+        Distribute.setListener(new MyDistributeListener());
         Push.enableFirebaseAnalytics(getApplication());
-        MobileCenter.start(getApplication(), "272da757-9d75-4799-9323-e0da29a728b6", Push.class);
+        MobileCenter.setLogUrl("https://in-staging-south-centralus.staging.avalanch.es");
+        MobileCenter.start(getApplication(), "6cfc0ef6-3735-4bf9-9b77-9385bc7bb616", Push.class);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
