@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
         Distribute.setListener(new MyDistributeListener());
         Push.enableFirebaseAnalytics(getApplication());
         MobileCenter.setLogUrl("https://in-staging-south-centralus.staging.avalanch.es");
-        MobileCenter.start(getApplication(), "6cfc0ef6-3735-4bf9-9b77-9385bc7bb616", Push.class);
+        MobileCenter.start(getApplication(), "6cfc0ef6-3735-4bf9-9b77-9385bc7bb616", Push.class, Distribute.class);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
